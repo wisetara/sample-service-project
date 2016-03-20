@@ -1,9 +1,10 @@
-Sample Service Project - Non-Working Non-Proprietary Work-Based Sample
+Sample Service Project - Non-Working Non-Proprietary Sample
 --------
 
 Over the last two years, I have contributed twice to rails/rails, but most of
 my outside work in coding has been about training with Team Treehouse and
-CodeSchool, and there weren't projects built through that training. It's been
+CodeSchool, and there weren't projects built through that training. My time
+in that training and in my code-writing at my place of employment has been
 super-valuable, but it doesn't leave much time for outside coding projects.
 With that in mind, I am attempting to illustrate some of the tasks/projects I
 accomplished at work--without posting proprietary code. So, this code won't
