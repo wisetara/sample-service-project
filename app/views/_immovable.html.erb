@@ -1,0 +1,12 @@
+<span class="extension_filters immovable-extensions" >Immovable Expiration Date: </span>
+    <%= text_field_tag(
+        :immovable_exp,
+        nil,
+        :class => "datepicker"
+    )%>
+
+<script>
+  $(function() {
+    $( ".datepicker" ).datepicker({ minDate: 0 });
+  });
+</script>

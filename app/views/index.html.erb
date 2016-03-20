@@ -1,0 +1,43 @@
+<h1>Object and Document Extensions</h1>
+<br>
+<%= form_tag application_extend_objects_path, :method => :post, :class => "form" do %>
+
+  <span class="filter-title extension_filters">Object ID: </span>
+  <%= text_field_tag(:object_id)%>
+  <br>
+
+  <span class="filter-title extension_filters" id="expiration-chooser">Dynamic or Immovable?: </span>
+  <%= select_tag(
+      :dynamic_exp,
+      options_for_select([["Choose One", nil], ["Dynamic Expiration", true], ["Immovable (NOT dynamic) Expiration", false]])
+      )%><br>
+        <section class="expiration_selection" id="expiration-type">
+        </section>
+  <br>
+
+  <div class="form-buttons">
+    <%= submit_tag "Update", :class => "btn btn-primary", :id => "submit_extension" %>
+    <%= link_to "Cancel", application_extend_objects_path %>
+  </div>
+<% end %>
+
+<br><br>
+
+<%= link_to "Visit the most recently updated object's show page", application_object_path(@object_id) if @object_id.present? %>
+
+<%= javascript_tag do %>
+  var $expirationSection, $chooser;
+
+  $chooser = $('select#dynamic_exp');
+  $expirationSection = $('section#expiration-type');
+
+  $chooser.on('change', function() {
+    if ($(this).val() == "true") {
+      $expirationSection.html('<%= j raw render :partial => "application/dynamic" %>');
+    } else if ($(this).val() == '') {
+      $expirationSection.html('');
+    } else {
+      $expirationSection.html('<%= j raw render :partial => "application/immovable" %>');
+    };
+  });
+<% end %>
